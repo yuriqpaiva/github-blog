@@ -27,7 +27,7 @@ export function PostCard({ post }: Props) {
   const postBodyWithoutMarkdown = removeMd(post.body.slice(0, 174))
 
   return (
-    <PostCardContainer to={`posts/${post.id}`}>
+    <PostCardContainer to={`posts/${post.number}`}>
       <PostHeader>
         <PostTitle>{post.title}</PostTitle>
         <PostDate title={fullDateFormatted} dateTime={formattedDate}>

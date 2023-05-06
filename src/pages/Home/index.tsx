@@ -10,6 +10,7 @@ export interface PostData {
   title: string
   body: string
   created_at: string
+  number: number
 }
 
 export function Home() {
