@@ -10,16 +10,21 @@ export const PostCardContainer = styled(Link)`
   background-color: ${({ theme }) => theme['base-post']};
   border-radius: 10px;
   padding: 2rem;
-  overflow: hidden;
 
   &:hover {
     transition: box-shadow 0.2s ease-in-out;
     box-shadow: 0 0 0 2px ${({ theme }) => theme['base-label']};
   }
+
+  @media screen and (max-width: 912px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 export const PostHeader = styled.header`
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
 `
 

@@ -4,16 +4,12 @@ import {
   ProfileContainer,
   ProfileImage,
   ProfileInfo,
-  ProfileStats,
-  ProfileStatsItem,
+  ProfileMobileHeader,
   TitleWrapper,
 } from './styles'
-import {
-  FaGithub,
-  FaUserFriends,
-  FaBuilding,
-  FaExternalLinkAlt,
-} from 'react-icons/fa'
+import { FaExternalLinkAlt } from 'react-icons/fa'
+import { ProfileStats } from './ProfileStats'
+import useScreenSizeStore from '../../stores/useScreenSizeStore'
 
 interface ProfileData {
   name: string
@@ -26,6 +22,7 @@ interface ProfileData {
 
 export function Profile() {
   const [profile, setProfileInformation] = useState<ProfileData | null>(null)
+  const screenSize = useScreenSizeStore((state) => state.screenSize)
 
   useEffect(() => {
     async function fetchProfileInformation() {
@@ -40,34 +37,22 @@ export function Profile() {
 
   return (
     <ProfileContainer>
-      <ProfileImage src={profile?.avatar_url} alt="" />
+      <ProfileMobileHeader>
+        <ProfileImage src={profile?.avatar_url} alt="" />
+        {screenSize.width <= 694 && <ProfileStats profile={profile} />}
+      </ProfileMobileHeader>
       <ProfileInfo>
-        <div>
-          <TitleWrapper>
+        <TitleWrapper>
+          <div>
             <h1>{profile?.name}</h1>
-            <ExternalGithubLink href={profile?.html_url} target="_blank">
-              <span>Github</span>
-              <FaExternalLinkAlt />
-            </ExternalGithubLink>
-          </TitleWrapper>
-          <p>{profile?.bio}</p>
-        </div>
-        <ProfileStats>
-          <ProfileStatsItem>
-            <FaGithub />
-            <span>{profile?.login}</span>
-          </ProfileStatsItem>
-
-          <ProfileStatsItem>
-            <FaBuilding />
-            <span>Rocketseat</span>
-          </ProfileStatsItem>
-
-          <ProfileStatsItem>
-            <FaUserFriends />
-            <span>{profile?.followers} seguidores</span>
-          </ProfileStatsItem>
-        </ProfileStats>
+            <p>{profile?.bio}</p>
+          </div>
+          <ExternalGithubLink href={profile?.html_url} target="_blank">
+            <span>Github</span>
+            <FaExternalLinkAlt />
+          </ExternalGithubLink>
+        </TitleWrapper>
+        {screenSize.width > 694 && <ProfileStats profile={profile} />}
       </ProfileInfo>
     </ProfileContainer>
   )

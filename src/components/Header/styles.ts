@@ -4,12 +4,12 @@ import coverBlur from '../../assets/cover-blur.svg'
 export const HeaderContainer = styled.header`
   position: relative;
   background-color: ${({ theme }) => theme['base-profile']};
-  width: 100%;
   height: 296px;
   z-index: -1;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 
   img:nth-child(2) {
     position: absolute;
@@ -27,6 +27,7 @@ export const HeaderContainer = styled.header`
 `
 
 export const CoverBlur = styled.div`
+  overflow: hidden;
   position: absolute;
   width: 100%;
   height: 100%;

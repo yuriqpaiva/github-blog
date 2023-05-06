@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { PostCard } from '../../components/PostCard'
 import { Profile } from '../../components/Profile'
 import { SearchBar } from '../../components/SearchBar'
-import { PostsContainer } from './styles'
+import { HomeContainer, PostsContainer } from './styles'
 import { api } from '../../lib/api'
 
 export interface PostData {
@@ -31,7 +31,7 @@ export function Home() {
   }, [])
 
   return (
-    <>
+    <HomeContainer>
       <Profile />
       <SearchBar postsCount={postsCount} onSearch={fetchPosts} />
 
@@ -40,6 +40,6 @@ export function Home() {
           <PostCard key={post.id} post={post} />
         ))}
       </PostsContainer>
-    </>
+    </HomeContainer>
   )
 }

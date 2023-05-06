@@ -24,7 +24,7 @@ export function PostCard({ post }: Props) {
     addSuffix: true,
   }).replace('cerca de', '')
 
-  const postBodyWithoutMarkdown = removeMd(post.body.slice(0, 174))
+  const postBodyWithoutMarkdown = removeMd(post.body.slice(0, 500))
 
   return (
     <PostCardContainer to={`posts/${post.number}`}>

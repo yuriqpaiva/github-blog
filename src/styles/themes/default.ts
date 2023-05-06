@@ -11,4 +11,10 @@ export const defaultTheme = {
   'base-profile': '#0B1B2B',
   'base-background': '#071422',
   'base-input': '#040F1A',
+
+  screen: {
+    desktop: 'max-width: 1200px',
+    tablet: 'max-width: 768px',
+    mobile: 'max-width: 480px',
+  },
 }

@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 export const ProfileContainer = styled.div`
-  max-width: 864px;
-  width: 100%;
-  height: 212px;
+  height: auto;
 
   margin: -88px auto 0;
   background-color: ${({ theme }) => theme['base-profile']};
@@ -15,6 +13,14 @@ export const ProfileContainer = styled.div`
 
   display: flex;
   gap: 2rem;
+
+  @media screen and (max-width: 694px) {
+    flex-direction: column;
+  }
+`
+
+export const ProfileMobileHeader = styled.header`
+  display: flex;
 `
 
 export const ProfileImage = styled.img`
@@ -23,6 +29,11 @@ export const ProfileImage = styled.img`
   width: 148px;
   height: 148px;
   object-fit: cover;
+
+  @media screen and (max-width: 480px) {
+    width: 120px;
+    height: 120px;
+  }
 `
 
 export const ProfileInfo = styled.div`
@@ -41,11 +52,16 @@ export const ProfileInfo = styled.div`
 export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 100%;
 
   h1 {
     font-size: 1.5rem;
     font-weight: bold;
     color: ${({ theme }) => theme['base-title']};
+  }
+
+  @media screen and (max-width: 694px) {
+    flex-direction: column;
   }
 `
 
@@ -54,6 +70,7 @@ export const ExternalGithubLink = styled.a`
   gap: 0.5rem;
   align-items: center;
   height: 19px;
+  max-width: 66px;
 
   font-size: 0.75rem;
   font-weight: bold;
@@ -75,22 +92,8 @@ export const ExternalGithubLink = styled.a`
     padding: 0px;
     box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.blue};
   }
-`
 
-export const ProfileStats = styled.div`
-  display: flex;
-  gap: 1.5rem;
-`
-
-export const ProfileStatsItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-
-  svg {
-    width: 18px;
-    height: 18px;
-
-    color: ${({ theme }) => theme['base-label']};
+  @media screen and (max-width: 694px) {
+    margin-top: 1rem;
   }
 `
