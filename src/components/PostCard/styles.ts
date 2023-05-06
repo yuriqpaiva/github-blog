@@ -1,6 +1,9 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-export const PostCardContainer = styled.div`
+export const PostCardContainer = styled(Link)`
+  text-decoration: none;
+
   height: 260px;
   width: 416px;
 
@@ -43,6 +46,8 @@ export const PostDate = styled.time`
 
 export const PostContent = styled.p`
   margin-top: 1.25rem;
+
+  color: ${({ theme }) => theme['base-text']};
 
   overflow: hidden;
   text-overflow: ellipsis;

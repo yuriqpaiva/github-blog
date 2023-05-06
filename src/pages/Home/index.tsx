@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Header } from '../../components/Header'
 import { PostCard } from '../../components/PostCard'
 import { Profile } from '../../components/Profile'
 import { SearchBar } from '../../components/SearchBar'
@@ -31,8 +30,7 @@ export function Home() {
   }, [])
 
   return (
-    <div>
-      <Header />
+    <>
       <Profile />
       <SearchBar postsCount={postsCount} onSearch={fetchPosts} />
 
@@ -41,6 +39,6 @@ export function Home() {
           <PostCard key={post.id} post={post} />
         ))}
       </PostsContainer>
-    </div>
+    </>
   )
 }
