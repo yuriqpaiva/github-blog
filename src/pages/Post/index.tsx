@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { api } from '../../lib/api'
+import { PostSummary } from '../../components/PostSummary'
 
 interface PostData {
   title: string
@@ -11,6 +12,7 @@ interface PostData {
     login: string
   }
   comments: number
+  html_url: string
 }
 
 export function Post() {
@@ -29,7 +31,7 @@ export function Post() {
     fetchPost()
   }, [postNumber])
 
-  console.log(post)
+  if (!post) return null
 
-  return <h1>Post page</h1>
+  return <PostSummary post={post} />
 }
