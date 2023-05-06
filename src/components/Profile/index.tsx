@@ -46,8 +46,8 @@ export function Profile() {
           <TitleWrapper>
             <h1>{profile?.name}</h1>
             <ExternalGithubLink href={profile?.html_url} target="_blank">
-              <FaExternalLinkAlt />
               <span>Github</span>
+              <FaExternalLinkAlt />
             </ExternalGithubLink>
           </TitleWrapper>
           <p>{profile?.bio}</p>

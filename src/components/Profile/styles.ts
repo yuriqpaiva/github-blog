@@ -19,6 +19,10 @@ export const ProfileContainer = styled.div`
 
 export const ProfileImage = styled.img`
   border-radius: 8px;
+
+  width: 148px;
+  height: 148px;
+  object-fit: cover;
 `
 
 export const ProfileInfo = styled.div`
@@ -49,15 +53,12 @@ export const ExternalGithubLink = styled.a`
   display: flex;
   gap: 0.5rem;
   align-items: center;
-
-  padding: 0 1rem;
+  height: 19px;
 
   font-size: 0.75rem;
   font-weight: bold;
   color: ${({ theme }) => theme.blue};
   text-decoration: none;
-
-  border-radius: 10px;
 
   span {
     text-transform: uppercase;
@@ -66,6 +67,13 @@ export const ExternalGithubLink = styled.a`
   svg {
     width: 12px;
     height: 12px;
+  }
+
+  &:hover,
+  &:focus {
+    border-radius: 0px;
+    padding: 0px;
+    box-shadow: 0px 1px 0px 0px ${({ theme }) => theme.blue};
   }
 `
 
