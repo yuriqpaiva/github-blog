@@ -15,27 +15,26 @@ export interface PostData {
 
 export function Home() {
   const [posts, setPosts] = useState([])
+  const postsCount = posts.length
+
+  async function fetchPosts(query: string = ' ') {
+    const response = await api.get('/search/issues', {
+      params: {
+        q: `${query} repo:yuriqpaiva/github-blog`,
+      },
+    })
+    setPosts(response.data.items)
+  }
 
   useEffect(() => {
-    async function fetchPosts() {
-      const response = await api.get('/search/issues', {
-        params: {
-          q: ' repo:yuriqpaiva/github-blog',
-        },
-      })
-      setPosts(response.data.items)
-    }
-
     fetchPosts()
   }, [])
-
-  console.log(posts)
 
   return (
     <div>
       <Header />
       <Profile />
-      <SearchBar />
+      <SearchBar postsCount={postsCount} onSearch={fetchPosts} />
 
       <PostsContainer>
         {posts.map((post: PostData) => (

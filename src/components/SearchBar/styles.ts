@@ -28,7 +28,14 @@ export const SearchBarLabel = styled.label`
   font-weight: bold;
 `
 
+export const SearchBarForm = styled.form`
+  display: flex;
+  gap: 1rem;
+`
+
 export const SearchBarInput = styled.input`
+  flex: 1;
+
   padding: 0.75rem 1rem;
   background-color: ${({ theme }) => theme['base-input']};
   border: 0;
@@ -38,5 +45,31 @@ export const SearchBarInput = styled.input`
 
   &::placeholder {
     color: ${({ theme }) => theme['base-label']};
+  }
+`
+
+export const SearchBarButton = styled.button`
+  border: 0;
+  border-radius: 8px;
+  color: ${({ theme }) => theme['base-title']};
+  background-color: ${({ theme }) => theme.blue};
+  font-weight: bold;
+  cursor: pointer;
+  padding: 0rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    transition: background-color 0.2s;
+    background-color: ${({ theme }) => theme['dark-blue']};
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: ${({ theme }) => theme['dark-blue']};
   }
 `
