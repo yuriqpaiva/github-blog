@@ -1,3 +1,4 @@
+import { PostData } from '../../pages/Home'
 import {
   PostCardContainer,
   PostContent,
@@ -5,26 +6,35 @@ import {
   PostHeader,
   PostTitle,
 } from './styles'
+import { formatDistanceToNow, parseISO, format } from 'date-fns'
+import { ptBR } from 'date-fns/locale'
+import removeMd from 'remove-markdown'
 
-export function PostCard() {
+interface Props {
+  post: PostData
+}
+
+export function PostCard({ post }: Props) {
+  const date = parseISO(post.created_at)
+  const fullDateFormatted = format(date, 'PPPPp', { locale: ptBR })
+  const formattedDate = post.created_at.replace('Z', `-05:00`)
+
+  const publishedDateRelativeToNow = formatDistanceToNow(date, {
+    locale: ptBR,
+    addSuffix: true,
+  }).replace('cerca de', '')
+
+  const postBodyWithoutMarkdown = removeMd(post.body.slice(0, 174))
+
   return (
     <PostCardContainer>
       <PostHeader>
-        <PostTitle>JavaScript data types and data structures</PostTitle>
-        <PostDate>Há 1 dia</PostDate>
+        <PostTitle>{post.title}</PostTitle>
+        <PostDate title={fullDateFormatted} dateTime={formattedDate}>
+          {publishedDateRelativeToNow}
+        </PostDate>
       </PostHeader>
-      <PostContent>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in JavaScript and what properties
-        they have. These can be used to build other data structures. Wherever
-        possible, comparisons with other languages are drawn. Dynamic typing
-        JavaScript is a loosely typed and dynamic language. Variables in
-        JavaScript are not directly associated with any particular value type,
-        and any variable can be assigned (and re-assigned) values of all types:
-        let foo = 42; // foo is now a number foo = &aposbar&apos; // foo is now
-        a string foo = true; // foo is now a boolean
-      </PostContent>
+      <PostContent>{postBodyWithoutMarkdown}</PostContent>
     </PostCardContainer>
   )
 }

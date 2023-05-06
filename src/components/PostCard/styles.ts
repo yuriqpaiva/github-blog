@@ -23,7 +23,7 @@ export const PostHeader = styled.header`
 export const PostTitle = styled.h2`
   color: ${({ theme }) => theme['base-title']};
 
-  max-width: 283px;
+  max-width: 259px;
 
   font-size: 1.25rem;
   font-weight: bold;
@@ -33,6 +33,12 @@ export const PostDate = styled.time`
   color: ${({ theme }) => theme['base-span']};
   font-size: 0.875rem;
   margin-top: 0.3125rem;
+
+  display: inline-block;
+
+  ::first-letter {
+    text-transform: capitalize;
+  }
 `
 
 export const PostContent = styled.p`
