@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const PostSummaryContainer = styled.div`
   max-width: 864px;
   width: 100%;
-  height: 168px;
+  min-height: 168px;
   margin: 0 auto;
 
   border-radius: 10px;
@@ -60,7 +60,12 @@ export const PostTitle = styled.h1`
 export const PostStatsContainer = styled.div`
   display: flex;
   gap: 2rem;
-  align-items: center;
+
+  @media screen and (max-width: 580px) {
+    margin-top: 1rem;
+    gap: 0.5rem;
+    flex-direction: column;
+  }
 `
 
 export const PostStatsItem = styled.div`

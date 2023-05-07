@@ -19,4 +19,8 @@ export const PostContentContainer = styled.div`
   h1:first-child {
     margin-top: 0;
   }
+
+  @media screen and (max-width: 912px) {
+    padding: 2.5rem 1rem;
+  }
 `

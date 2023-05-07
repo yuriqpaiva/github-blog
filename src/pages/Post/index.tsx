@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { api } from '../../lib/api'
 import { PostSummary } from '../../components/PostSummary'
 import { PostContent } from '../../components/PostContent'
+import { PostContainer } from './styles'
 
 interface PostData {
   title: string
@@ -35,9 +36,9 @@ export function Post() {
   if (!post) return null
 
   return (
-    <>
+    <PostContainer>
       <PostSummary post={post} />
       <PostContent body={post.body} />
-    </>
+    </PostContainer>
   )
 }
