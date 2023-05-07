@@ -35,6 +35,12 @@ export const PostTitle = styled.h2`
 
   font-size: 1.25rem;
   font-weight: bold;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `
 
 export const PostDate = styled.time`
