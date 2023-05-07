@@ -60,8 +60,6 @@ Follow these steps to get started with the Timer Application:
 
 4. In your browser, navigate to `http://localhost:5173` to access the application.
 
-5. Use the application by creating new timers, interrupting timers, and viewing timer history.
-
 
 <br>
 
