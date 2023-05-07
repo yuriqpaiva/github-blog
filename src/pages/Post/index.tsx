@@ -23,6 +23,12 @@ export function Post() {
   const [post, setPost] = useState<PostData | null>(null)
 
   useEffect(() => {
+    if (post) {
+      document.title = post.title
+    }
+  }, [post])
+
+  useEffect(() => {
     async function fetchPost() {
       const response = await api.get(
         `/repos/yuriqpaiva/github-blog/issues/${postNumber}`,
