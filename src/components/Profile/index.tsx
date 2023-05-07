@@ -35,6 +35,8 @@ export function Profile() {
     fetchProfileInformation()
   }, [])
 
+  if (!profile) return null
+
   return (
     <ProfileContainer>
       <ProfileMobileHeader>
