@@ -15,7 +15,7 @@
 </p>
 
 <p align="center">
-  <img src="preview.png" alt="Timer Application Screenshot" width="500">
+  <img src="preview.png" alt="Timer Application Screenshot" width="700">
 </p>
 
 <br>
